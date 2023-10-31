@@ -31,3 +31,10 @@ export async function GET() {
 
   return NextResponse.json({ status: 400 });
 }
+
+export async function DELETE(request) {
+  const id = request.nextUrl.searchParams.get("id");
+  await connectDB();
+  await Todo.findByIdAndDelete(id);
+  return NextResponse.json({ message: "Topic Deleted" }, { status: 200 });
+}

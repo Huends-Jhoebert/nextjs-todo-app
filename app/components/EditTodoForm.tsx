@@ -3,17 +3,17 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 
-function EditTopicForm({ id, title, description }) {
+function EditTodoForm({ id, title, description }) {
   const [newTitle, setNewTitle] = useState(title);
   const [newDescription, setNewDescription] = useState(description);
-
+  console.log(id)
   const router = useRouter();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
-      const res = await fetch(`http://localhost:3000/api/topics/${id}`, {
+      const res = await fetch(`http://localhost:3005/api/todo/${id}`, {
         method: "PUT",
         headers: {
           "Content-type": "application/json",
@@ -55,10 +55,10 @@ function EditTopicForm({ id, title, description }) {
         type="submit"
         className="bg-green-600 font-bold text-white py-3 px-6 w-fit"
       >
-        Update Topic
+        Update Todo List
       </button>
     </form>
   );
 }
 
-export default EditTopicForm;
+export default EditTodoForm;
