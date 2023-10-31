@@ -15,11 +15,3 @@ export async function POST(request) {
     return NextResponse.json({ status: 400 });
   }
 }
-export async function GET(request: NextRequest) {
-  console.log(request.nextUrl.searchParams.get("foo"));
-  return new Response("Hello, Next.js!");
-}
-
-export async function GET() {
-  console.log("Asdasd");
-}
