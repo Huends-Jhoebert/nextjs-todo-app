@@ -2,6 +2,7 @@ import Todo from "../../../models/todo";
 import { NextResponse } from "next/server";
 import connectDB from "../../../lib/mongodb";
 
+
 export async function POST(request) {
   const { title, description } = await request.json();
 
@@ -15,3 +16,5 @@ export async function POST(request) {
     return NextResponse.json({ status: 400 });
   }
 }
+
+
